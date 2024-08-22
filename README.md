@@ -9,6 +9,8 @@ This container is meant to make it easy for anyone with some basic container kno
 
 Currently, all configuration is managed with a `veilid.conf` file that is stored at `/data/veilid.conf` within the container. You can copy the included `veilid.conf` file from this repo, and map it in as a volume if you would like to make changes to the configuration of the server.  
 
+The veilid server also stores persistent data in `/var/db/veilid-server` so that needs to be mapped in as well. 
+
 ## Build and run on Podman
 
 First build the container with:
@@ -18,7 +20,10 @@ First build the container with:
 
 And then run it using:
 
-`podman run -p 5150:5150 -v /path/to/my/veilid.conf:/data/veilid.conf:Z veilid-server`
+`podman run -p 5150:5150 \
+  -v /path/to/my/veilid.conf:/data/veilid.conf:Z \
+  -v /path/to/my/veilid-data:/var/db/veilid-server:Z \
+  veilid-server`
 
 ## Build and run on Docker
 
@@ -29,5 +34,8 @@ First build the container with:
 
 And then run it using:
 
-`docker run -p 5150:5150 -v /path/to/my/veilid.conf:/data/veilid.conf:Z veilid-server`
+`docker run -p 5150:5150 \
+  -v /path/to/my/veilid.conf:/data/veilid.conf:Z \
+  -v /path/to/my/veilid-data:/var/db/veilid-server:Z \
+  veilid-server`
 
