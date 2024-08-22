@@ -44,10 +44,5 @@ docker run -p 5150:5150 \
 
 
 ## Conecting to the CLI
-You can either use the CLI tool built into the container, or connect to it from some other host using the -a flag to veilid-cli. 
+```[podman|docker] exec -it <container-name> veilid-cli```
 
-### From the container
-```[podman|docker] exec -it <container-name> veilid-cli -a 127.0.0.1:5150```
-
-### From another host with veilid-cli installed.
-```veilid-cli -a <ip.address.of.veilidserver>:5150```
