@@ -7,7 +7,7 @@ This container is meant to make it easy for anyone with some basic container kno
 
 # How to Run
 
-Currently, all configuration is managed with a `veilid.conf` file that is included at `/data/veilid.conf`. You can copy the included `veilid.conf` file from this repo, and map it in as a volume if you would like to make changes to the configuration of the server.  
+Currently, all configuration is managed with a `veilid.conf` file that is stored at `/data/veilid.conf` within the container. You can copy the included `veilid.conf` file from this repo, and map it in as a volume if you would like to make changes to the configuration of the server.  
 
 ## Build and run on Podman
 
