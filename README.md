@@ -24,10 +24,10 @@ And then run it using:
 
 First build the container with:
 
-`podman build -t veilid-server .`
+`docker build -t veilid-server .`
 
 
 And then run it using:
 
-`podman run -p 5150:5150 -v /path/to/my/veilid.conf:/data/veilid.conf:Z veilid-server`
+`docker run -p 5150:5150 -v /path/to/my/veilid.conf:/data/veilid.conf:Z veilid-server`
 
