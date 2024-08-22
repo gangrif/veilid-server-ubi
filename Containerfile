@@ -1,4 +1,5 @@
 FROM registry.access.redhat.com/ubi9/ubi
+RUN dnf update -y
 RUN dnf config-manager --add-repo https://packages.veilid.net/rpm/stable/x86_64/veilid-stable-x86_64-rpm.repo
 RUN dnf install -y veilid-server veilid-cli
 EXPOSE 5150
