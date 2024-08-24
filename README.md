@@ -7,11 +7,16 @@ This container is meant to make it easy for anyone with some basic container kno
 
 # How to Run
 
-Currently, all configuration is managed with a `veilid.conf` file that is stored at `/data/veilid.conf` within the container. You can copy the included [veilid.conf](https://github.com/gangrif/veilid-server-ubi/blob/main/veilid.conf) file from the supporting github repo, and add it to your veilid-data volume if you would like to make changes to the configuration of the server.  
+Currently, all configuration is managed with a `veilid.conf` file that is stored at `/config/veilid.conf` within the container. You can copy the included [veilid.conf](https://github.com/gangrif/veilid-server-ubi/blob/main/veilid.conf) file from the supporting github repo, and add it to your veilid-config volume if you would like to make changes to the configuration of the server.  
 
-The veilid server also stores persistent data in `/data/db/veilid-server` so that needs to be mapped in as well.
+Veilid-server also logs to /config/veilid.log, so mapping /config in is a good idea if you would like the log file to be accessible.
 
-I recommend making a veilid data directory on your local filesystem, placing a veilid.conf inside that directory, and then mapping it to /data.  
+The veilid server also stores persistent data in `/var/db/veilid-server` so that needs to be mapped in as well.
+
+I recommend creating two volumes, one for config, the other for data.  Then map them in as follows
+* /your/config/directory:/config (Place veilid.conf in here if desired)
+* /your/data/directory:/var/db/veilid-server
+
 ## Build and run on Podman
 
 First build the container with:
@@ -23,7 +28,8 @@ And then run it using:
 
 ```
 podman run -p 5150:5150 \
-  -v /path/to/my/veilid-data:/data:Z \
+  -v /your/config/directory:/config:Z \
+  -v /your/data/directory:/var/db/veilid-server:Z \
   veilid-server
 ```
 
@@ -38,7 +44,8 @@ And then run it using:
 
 ```
 docker run -p 5150:5150 \
-  -v /path/to/my/veilid-data:/data:Z \
+  -v /your/config/directory:/config:Z \
+  -v /your/data/directory:/var/db/veilid-server:Z \
   veilid-server
 ```
 

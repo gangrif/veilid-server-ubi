@@ -4,8 +4,8 @@ RUN dnf config-manager --add-repo https://packages.veilid.net/rpm/stable/x86_64/
 RUN dnf install -y veilid-server veilid-cli
 RUN usermod -d /var/db/veilid-server veilid
 EXPOSE 5150
-RUN mkdir /data
-COPY veilid.conf /data/veilid.conf
-RUN chown -R veilid:veilid /data
+RUN mkdir /config
+COPY veilid.conf /config/veilid.conf
+RUN chown -R veilid:veilid /config
 USER veilid
-CMD veilid-server -c /data/veilid.conf
+CMD veilid-server -c /config/veilid.conf
