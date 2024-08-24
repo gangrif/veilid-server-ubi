@@ -1,0 +1,9 @@
+[Unit]
+Description=The Config Volume for veilid-server 
+Before=veilid-pod.service
+
+
+[Volume]
+Type=nfs
+Device=192.168.86.45:/volume1/veilid/config
+Options=async
