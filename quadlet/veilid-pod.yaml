@@ -15,7 +15,7 @@ spec:
     name: server
     ports:
     - containerPort: 5150
-      hostIP: 192.168.200.210
+      hostIP: <your_desired_ip>
       hostPort: 5150
     securityContext: {}
     volumeMounts:

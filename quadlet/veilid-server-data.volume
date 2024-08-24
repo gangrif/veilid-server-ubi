@@ -1,9 +1,9 @@
 [Unit]
-Description=The Data Volume for veilid-server 
+Description=The Data Volume for veilid-server (/var/db/veilid-server)
 Before=veilid-pod.service
 
 
 [Volume]
 Type=nfs
-Device=192.168.86.45:/volume1/veilid/data/db/veilid-server 
+Device=/path/to/veilid/data/db/veilid-server 
 Options=async

@@ -6,6 +6,6 @@ Requires=veilid-server-data-volume.service
 Requires=veilid-server-config-volume.service
 
 [Kube]
-Yaml=/mnt/container-defs/veilid-server/veilid-pod.yaml
-PublishPort=192.168.200.210:5150:5150/udp
-PublishPort=192.168.200.210:5150:5150/tcp
+Yaml=/etc/containers/systemd/veilid-pod.yaml
+PublishPort=<your_desired_ip>:5150:5150/udp
+PublishPort=<your_desired_ip>:5150:5150/tcp
