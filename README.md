@@ -50,6 +50,6 @@ docker run -p 5150:5150 \
 ```
 
 
-## Conecting to the CLI
+## Connecting to the CLI
 ```[podman|docker] exec -it <container-name> veilid-cli```
 
