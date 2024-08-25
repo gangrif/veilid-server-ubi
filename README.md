@@ -37,7 +37,7 @@ podman run -p 5150:5150 \
 
 First build the container with:
 
-```docker build -t veilid-server .```
+```docker build -t veilid-server -f Containerfile .```
 
 
 And then run it using:
